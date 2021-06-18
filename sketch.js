@@ -25,7 +25,7 @@ function setup() {
   World.add(world,polygon);
   polygon_img=loadImage("polygon.png");
 
-  slingShot = new SlingShot (this.polygon, {x:100,y:200});
+  slingshot = new SlingShot (this.polygon, {x:100,y:200});
  
   //level one
   block1 = new Block(300,275,30,40);
@@ -95,17 +95,15 @@ function draw() {
   imageMode(CENTER);
   image(polygon_img ,polygon.position.x,polygon.position.y,40,40);
 
-  slingShot.display();
-
-  function mouseDragged(){
-    Matter.Body.setPosition(polygon.body, {x: mouseX , y: mouseY});
+  slingshot.display();
 }
 
-  function mouseReleased(){
-    slingshot.fly();
+function mouseDragged(){
+  Matter.Body.setPosition(this.polygon,{x: mouseX , y: mouseY});
 }
 
-
+function mouseReleased(){
+  slingshot.fly();
 }
 
 
